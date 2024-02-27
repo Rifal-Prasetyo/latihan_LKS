@@ -1,7 +1,7 @@
 <x-header :site=$site />
 <div class="container">
     <main>
-        <div class="w-full h-screen flex">
+        <div class="w-full h-screen flex flex-wrap">
             <div class="w-full md:w-1/2 flex justify-center items-center bg-primary">
                 <div class=" px-8 py-2">
                     <h1 class="font-bold text-lg md:text-4xl text-teks ">SELAMAT DATANG DI WEB CINEMA</h1>
@@ -20,6 +20,11 @@
                         <input type="password" name="password" id="password"
                             class="rounded px-4 py-2 focus:bg-teks mb-4 border border-primary"
                             placeholder="Masukkan Sandi">
+                        <div class="flex gap-4 mb-7">
+                            <label for="remember-button">Ingat Saya</label>
+                            <input type="checkbox" name="remember" id="remember-button">
+                        </div>
+
                         <button type="submit"
                             class="bg-primary text-teks px-4 py-2 hover:opacity-70 rounded-md">Kirim</button>
                     </form>

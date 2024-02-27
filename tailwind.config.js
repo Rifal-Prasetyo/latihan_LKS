@@ -12,7 +12,10 @@ export default {
         'secondary': '#872341',
         'accent': '#BE3144',
         'accent1': '#F05941',
-        'teks': '#F6FDC3'
+        'teks': '#F6FDC3',
+        'success': '#74E291',
+        'danger': '#DF2E38',
+        'warning': '#F9D923'
       }
     },
   },

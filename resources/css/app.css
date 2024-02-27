@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.info_success {
+    background-color: "#74E291";
+
+}
+.info_danger {
+    background-color: "#DF2E38";
+}
+.info_warming {
+    background-color: "#F9D923";
+}

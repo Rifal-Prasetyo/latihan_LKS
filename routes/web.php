@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +21,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('page.login', [LoginController::class, 'loginPage']);
 // });
 Route::get('/', [LoginController::class, 'loginPage'])->name('home');
+Route::post('/auth-login', [LoginController::class, 'loginAction'])->name('login');
+Route::get('/home', [HomeController::class, 'homePage']);
+Route::resource('/home/branch', BranchController::class);

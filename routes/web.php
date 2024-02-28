@@ -24,3 +24,6 @@ Route::get('/', [LoginController::class, 'loginPage'])->name('home');
 Route::post('/auth-login', [LoginController::class, 'loginAction'])->name('login');
 Route::get('/home', [HomeController::class, 'homePage']);
 Route::resource('/home/branch', BranchController::class);
+Route::get('/latihan', function () {
+    return view('page.latihan.dashboard');
+});

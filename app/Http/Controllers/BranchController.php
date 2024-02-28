@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
@@ -14,7 +15,8 @@ class BranchController extends Controller
         $site = [
             'title' => 'BRANCH'
         ];
-        return view('page.dashboard.branch.branchAll', compact('site'));
+        $branches = Branch::latest()->get();
+        return view('page.dashboard.branch.branchAll', compact('site', 'branches'));
     }
 
     /**
@@ -31,6 +33,16 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         //
+        $validate = $request->validate([
+            'name' => 'required'
+        ]);
+
+        if ($validate) {
+            Branch::create([
+                'name' => $request->name
+            ]);
+        }
+        return redirect()->back()->with(['info' => 'info_success', 'message' => 'Berhasil Menambahkan']);
     }
 
     /**
@@ -39,6 +51,11 @@ class BranchController extends Controller
     public function show(string $id)
     {
         //
+        $branch = Branch::find($id);
+        $site = [
+            'title' => 'Edit Branch ' . $branch->name
+        ];
+        return view('page.dashboard.branch.action.editBranch', compact('site', 'branch'));
     }
 
     /**
@@ -55,6 +72,16 @@ class BranchController extends Controller
     public function update(Request $request, string $id)
     {
         //
+
+        $validate = $request->validate([
+            'id' => 'required',
+            'name' => 'required'
+        ]);
+        if ($validate) {
+            $branch = Branch::find($request->id);
+            $branch->update($validate);
+        }
+        return redirect()->back()->with(['info' => 'info_warning', 'message' => 'Berhasil Update']);
     }
 
     /**
@@ -63,5 +90,8 @@ class BranchController extends Controller
     public function destroy(string $id)
     {
         //
+        $branch = Branch::find($id);
+        $branch->delete();
+        return redirect()->back()->with(['info' => 'info_danger', 'message' => 'Berhasil Hapus']);
     }
 }

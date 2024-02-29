@@ -12,6 +12,6 @@ class HomeController extends Controller
         $site = [
             'title' => 'DASHBOARD MENU'
         ];
-        return view('page.dashboard.dashboard', compact('site'));
+        return view('page.dashboardV2.dashboard', compact('site'));
     }
 }

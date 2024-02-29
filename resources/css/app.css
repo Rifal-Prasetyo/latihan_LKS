@@ -7,13 +7,16 @@
     }
   }
 
+.active_button {
+  @apply bg-accent shadow-white
+}
 .info_success {
-    background-color: "#74E291";
+    background-color: #74E291;
 
 }
 .info_danger {
-    background-color: "#DF2E38";
+    background-color: #DF2E38;
 }
 .info_warming {
-    background-color: "#F9D923";
+    background-color: #F9D923;
 }

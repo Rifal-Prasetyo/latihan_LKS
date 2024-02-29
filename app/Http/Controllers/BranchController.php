@@ -16,7 +16,7 @@ class BranchController extends Controller
             'title' => 'BRANCH'
         ];
         $branches = Branch::latest()->get();
-        return view('page.dashboard.branch.branchAll', compact('site', 'branches'));
+        return view('page.dashboardV2.branch.branchAll', compact('site', 'branches'));
     }
 
     /**
@@ -55,7 +55,7 @@ class BranchController extends Controller
         $site = [
             'title' => 'Edit Branch ' . $branch->name
         ];
-        return view('page.dashboard.branch.action.editBranch', compact('site', 'branch'));
+        return view('page.dashboardV2.branch.action.editBranch', compact('site', 'branch'));
     }
 
     /**
@@ -81,7 +81,7 @@ class BranchController extends Controller
             $branch = Branch::find($request->id);
             $branch->update($validate);
         }
-        return redirect()->back()->with(['info' => 'info_warning', 'message' => 'Berhasil Update']);
+        return redirect()->back()->with('status', "berhasil");
     }
 
     /**
